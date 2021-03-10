@@ -52,7 +52,6 @@ while (True):
         index_A = index_B = randint(1, N) - 1
     else:
         index_A = index_B = index_vencedor
-        rept = rept+1
     while (index_B == index_A):
         index_B = randint(1, N) - 1
 
@@ -81,20 +80,25 @@ while (True):
         filmeA.elo_rating = update_rating("win",filmeA.elo_rating,filmeB.elo_rating,K)
         filmeB.elo_rating = update_rating("lose", filmeB.elo_rating, filmeA.elo_rating, K)
         index_vencedor = filmeA.index
+        rept = rept+1
 
     elif (key in {'B', 'b'}):
         filmeA.elo_rating = update_rating("lose", filmeA.elo_rating, filmeB.elo_rating, K)
         filmeB.elo_rating = update_rating("win", filmeB.elo_rating, filmeA.elo_rating, K)
         index_vencedor = filmeB.index
+        rept = rept+1
 
     elif (key in {'E', 'e'}):
         filmeA.elo_rating = update_rating("tie", filmeA.elo_rating, filmeB.elo_rating, K)
         filmeB.elo_rating = update_rating("tie", filmeB.elo_rating, filmeA.elo_rating, K)
         index_vencedor = -1
+        rept = 0
     if(rept > 5):
         index_vencedor = -1
         rept = 0
     if (key in {'P', 'p'}):
+        index_vencedor = -1
+        rept = 0
         continue
     print("\n")
     print("O filme \"{}\" agora possui um índice ELO de {}.".format(filmeA.title, filmeA.elo_rating))
