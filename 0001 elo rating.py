@@ -42,6 +42,7 @@ N = len(linhas_lidas)
 print("\tCOMPARADOR DE FILMES\t")
 print("\n")
 index_vencedor = -1 #usado para repetir o filme vencedor
+rept = 0
 while (True):
     print("Compare os filmes abaixo.")
     print("Selecione o melhor filme entre as duas opções (A ou B)")
@@ -51,6 +52,7 @@ while (True):
         index_A = index_B = randint(1, N) - 1
     else:
         index_A = index_B = index_vencedor
+        rept = rept+1
     while (index_B == index_A):
         index_B = randint(1, N) - 1
 
@@ -89,7 +91,9 @@ while (True):
         filmeA.elo_rating = update_rating("tie", filmeA.elo_rating, filmeB.elo_rating, K)
         filmeB.elo_rating = update_rating("tie", filmeB.elo_rating, filmeA.elo_rating, K)
         index_vencedor = -1
-
+    if(rept > 5):
+        index_vencedor = -1
+        rept = 0
     if (key in {'P', 'p'}):
         continue
     print("\n")
