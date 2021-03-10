@@ -95,7 +95,7 @@ while (True):
         filmeB.elo_rating = update_rating("tie", filmeB.elo_rating, filmeA.elo_rating, K)
         index_vencedor = -1
         rept = 0
-    if(rept > 2):
+    if(rept > 1):
         index_vencedor = -1
         rept = 0
     if (key in {'P', 'p'}):
