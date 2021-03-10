@@ -79,21 +79,24 @@ while (True):
     elif (key in {'A', 'a'}):
         filmeA.elo_rating = update_rating("win",filmeA.elo_rating,filmeB.elo_rating,K)
         filmeB.elo_rating = update_rating("lose", filmeB.elo_rating, filmeA.elo_rating, K)
+        if(index_vencedor == filmeA.index)
+            rept = rept + 1
         index_vencedor = filmeA.index
-        rept = rept+1
+
 
     elif (key in {'B', 'b'}):
         filmeA.elo_rating = update_rating("lose", filmeA.elo_rating, filmeB.elo_rating, K)
         filmeB.elo_rating = update_rating("win", filmeB.elo_rating, filmeA.elo_rating, K)
+        if(index_vencedor == filmeB.index)
+            rept = rept+1
         index_vencedor = filmeB.index
-        rept = rept+1
 
     elif (key in {'E', 'e'}):
         filmeA.elo_rating = update_rating("tie", filmeA.elo_rating, filmeB.elo_rating, K)
         filmeB.elo_rating = update_rating("tie", filmeB.elo_rating, filmeA.elo_rating, K)
         index_vencedor = -1
         rept = 0
-    if(rept > 5):
+    if(rept > 3):
         index_vencedor = -1
         rept = 0
     if (key in {'P', 'p'}):
