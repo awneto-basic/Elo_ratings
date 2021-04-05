@@ -37,7 +37,7 @@ p.value-description {
     margin-left: 20pt;
 }
 p.question {
-    margin: 16pt auto;
+    margin: -2px auto;
     color: #333333;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: normal;
