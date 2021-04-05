@@ -3,10 +3,10 @@ html {
     background-image: url("felix-mooneeram-evlkofkq5re-unsplash.jpg"); /*Foto tirada por Felix Mooneeram e publicada na plataforma Unsplash. Fonte: https://unsplash.com/photos/evlkOfkQ5rE*/
     background-position: center;
     padding: 0px;
-    height: 100vh;
+    height: 100%;
 }
 body {
-    min-height: calc(100vh - 4em);
+    min-height: 100%;
     width: 70%;
     margin: 0 auto;
     background-color: rgba(229, 229, 229, 1);
