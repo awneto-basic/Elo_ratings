@@ -44,16 +44,11 @@
   function ler_filmes()
   {
      const ele = document.getElementsByTagName('textarea');
-     for (let i = 0; i <= ele.length - 1; i++)
+     if (ele.value === '') 
      {
-        if (ele[i].value != '') 
-           alert (ele[i].value);
-        else 
-        {
            alert ('Escreva um título de um filme antes usar o classificador.');
            ele[i].focus();
            return false;
-        }
      }
      toggleText("textbox");
      toggleText("botao_filme_1");
