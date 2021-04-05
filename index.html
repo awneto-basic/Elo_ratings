@@ -27,12 +27,27 @@
    <br>
    <br>
 
-  <button class="button" onclick="ler_filmes" style="background-color: #3300FF;">Classificar filmes!</button>
+  <button class="button" onclick="ler_filmes()" style="background-color: #3300FF;">Classificar filmes!</button>
    <br>
    <p style="text-align:center;font-size:16px; bottom: 0;">
       Implementado por Alexandre Willik Neto.
    </p>
   <script>
+  function ler_filmes()
+  {
+     const ele = document.getElementsByTagName('textarea');
+     for (let i = 0; i <= ele.length - 1; i++)
+     {
+        if (ele[i].value != '') 
+           alert (ele[i].value);
+        else 
+        {
+           alert ('Enter some value.');
+           ele[i].focus();
+           return false;
+        }
+     }
+  }
   </script>
 </body>
   
