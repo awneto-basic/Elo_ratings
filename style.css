@@ -9,7 +9,6 @@ body {
     min-height: calc(100vh - 4em);
     width: 70%;
     margin: 0 auto;
-    padding: 0;
     background-color: rgba(229, 229, 229, 1);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
