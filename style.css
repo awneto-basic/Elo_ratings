@@ -2,8 +2,10 @@ html {
     /*background: linear-gradient(180deg, rgba(26,82,118,1) 0%, rgba(46,134,193,1) 24%, rgba(72,201,176,1) 62%, rgba(125,206,160,1) 100%);*/
     background-image: url("felix-mooneeram-evlkofkq5re-unsplash.jpg"); /*Foto tirada por Felix Mooneeram e publicada na plataforma Unsplash. Fonte: https://unsplash.com/photos/evlkOfkQ5rE*/
     padding: 0px;
+    height: 100%;
 }
 body {
+    min-height: 100%;
     width: 70%;
     min-height: calc(100vh - 4em);
     margin: 0 auto;
