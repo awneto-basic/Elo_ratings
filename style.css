@@ -43,8 +43,8 @@ p.question {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: normal;
     width: 70%;
-    min-width: 500pt;
-    min-height: 144pt;
+    min-width: calc(10vh - 4em);
+    min-height: calc(10vh - 4em);
     background-color: #eeeeee;
     padding: 16pt;
     border-radius: 16pt;
