@@ -41,6 +41,39 @@
       Implementado por Alexandre Willik Neto.
    </p>
   <script>
+     
+  class Filme
+  {
+     constructor(index, title, elo_rating)
+     {
+        this.index = index;
+        this.title = title;
+        this.elo_rating = elo_rating;
+     }
+  }
+  
+  function get_expected_rating(A, B)
+  {
+     return (1 / (1 + 10 ** ((B - A) / 400)))
+  }
+     
+  function update_rating(result,A,B,K)
+  {
+    if (result === "win")
+    {
+        return (A + K * (1 - get_expected_rating(A, B)))
+    }
+    if (result === "lose")
+    {
+        return (A + K * (0 - get_expected_rating(A, B)))
+    }
+    if (result === "tie")
+    {
+        return (A + K * (0.5 - get_expected_rating(A, B)))
+    }
+  }
+
+     
   function ler_filmes()
   {
      const ele = document.getElementsByTagName('textarea');
@@ -57,12 +90,18 @@
      toggleText("botao_voltar");
      
      var textArea = document.getElementById("textbox");
-     var vetorDeFilmes = textArea.value.split("\n");
-     for (let i = 0; i<=vetorDeFilmes.length -1; i++)
+     var vetorDeFilmes = textArea.value.split("\n"); /*TODO; Criar lista de objetos ao ler filmes*/
+     
+     var N = vetorDeFilmes.length;
+     
+     for (let i = 0; i<=N -1; i++)
      {
         alert (vetorDeFilmes[i]);
      }
      
+     var K = 32; /*reajuste máximo por jogo*/
+     var index_vencedor = -1;
+     var rept = 0;
      
   }
   function voltar()
