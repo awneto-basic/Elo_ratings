@@ -295,7 +295,7 @@ textarea {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: normal;
     width: 70%;
-    min-width: 500pt;
+    min-width: calc(10vh - 4em);
     min-height: 144pt;
     background-color: #eeeeee;
     padding: 16pt;
