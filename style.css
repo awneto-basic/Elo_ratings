@@ -37,11 +37,11 @@ p.value-description {
     margin-left: 20pt;
 }
 p.question {
-    margin: -2px auto;
+    margin: 16pt auto;
     color: #333333;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: normal;
-    width: 70%;
+    width: 60%;
     min-width: calc(10vh - 4em);
     min-height: calc(10vh - 4em);
     background-color: #eeeeee;
