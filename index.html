@@ -90,13 +90,19 @@
      toggleText("botao_voltar");
      
      var textArea = document.getElementById("textbox");
-     var vetorDeFilmes = textArea.value.split("\n"); /*TODO; Criar lista de objetos ao ler filmes*/
+     var vetorDeTitulos = textArea.value.split("\n"); 
      
-     var N = vetorDeFilmes.length;
+     var N = vetorDeTitulos.length;
+     var vetorDeFilmes = [];
+     for (let i = 0; i<=N -1; i++)
+     {
+        vetorDeFilmes.push(new Filme(i+1,vetorDeTitulos[i],1000))
+     }
+     
      
      for (let i = 0; i<=N -1; i++)
      {
-        alert (vetorDeFilmes[i]);
+        alert (vetorDeTitulos[i]);
      }
      
      var K = 32; /*reajuste máximo por jogo*/
