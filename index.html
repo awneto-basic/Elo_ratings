@@ -56,6 +56,13 @@
      toggleText("botao_ler");
      toggleText("botao_voltar");
      
+     var textArea = document.getElementById("textbox");
+     var vetorDeFilmes = textArea.value.split("\n");
+     for (let i = 0; i<=vetorDeFilmes.length -1; i++)
+     {
+        alert (vetorDeFilmes[i]);
+     }
+     
      
   }
   function voltar()
