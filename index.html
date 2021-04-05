@@ -52,6 +52,7 @@
   var rept = 0;
   var index_A=0;
   var index_B=0;
+  var vetorDeFilmes = [];
   
   class Filme
   {
@@ -105,7 +106,7 @@
      var vetorDeTitulos = textArea.value.split("\n"); 
      
      var N = vetorDeTitulos.length;
-     var vetorDeFilmes = [];
+     
      for (let i = 0; i<=N -1; i++)
      {
         vetorDeFilmes.push(new Filme(i+1,vetorDeTitulos[i],1000))
