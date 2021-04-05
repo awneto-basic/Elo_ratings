@@ -28,20 +28,31 @@
                                                                                 " id="lista_filmes"></textarea>
    <br>
    <br>
-  <button class="button" id="botao_filme_1" onclick="votar_filme_1()" style="background-color: #3300FF;display: none">Filme 1</button>
+  <button class="button" id="botao_filme_1" onclick="votar_filme(1)" style="background-color: #3300FF;display: none">Filme 1</button>
   <br>
-  <button class="button" id="botao_filme_2" onclick="votar_filme_1()" style="background-color: #32CD32;display: none">Filme 2</button>
+  <button class="button" id="botao_filme_2" onclick="votar_filme(2)" style="background-color: #32CD32;display: none">Filme 2</button>
   <br>
   <button class="button" id="botao_voltar" onclick="voltar()" style="background-color: #FF6347;display: none">Voltar</button>
   <br>
   <button class="button" id="botao_ler" onclick="ler_filmes()" style="background-color: #3300FF;display: block">Classificar filmes!</button>
   <br>
   <br>
-   <p style="text-align:center;font-size:16px; bottom: 0;">
+  <p id="filme1_tabela" style="text-align:center;font-size:16px; bottom: 0; display: none"></p>
+  <p id="filme2_tabela" style="text-align:center;font-size:16px; bottom: 0; display: none"></p>
+  <p id="filme3_tabela" style="text-align:center;font-size:16px; bottom: 0; display: none"></p>
+  <p id="filme4_tabela" style="text-align:center;font-size:16px; bottom: 0; display: none"></p>
+  <p id="filme5_tabela" style="text-align:center;font-size:16px; bottom: 0; display: none"></p>
+  <p style="text-align:center;font-size:16px; bottom: 0;">
       Implementado por Alexandre Willik Neto.
    </p>
   <script>
-     
+  var rept = 0;
+  var K = 32; /*reajuste máximo por jogo*/
+  var index_vencedor = -1;
+  var rept = 0;
+  var index_A=0;
+  var index_B=0;
+  
   class Filme
   {
      constructor(index, title, elo_rating)
@@ -89,6 +100,7 @@
      toggleText("botao_ler");
      toggleText("botao_voltar");
      
+     
      var textArea = document.getElementById("textbox");
      var vetorDeTitulos = textArea.value.split("\n"); 
      
@@ -99,16 +111,76 @@
         vetorDeFilmes.push(new Filme(i+1,vetorDeTitulos[i],1000))
      }
      
-     
+     /*
      for (let i = 0; i<=N -1; i++)
      {
         alert (vetorDeFilmes[i].index);
+     }*/
+     
+
+     if (index_vencedor === -1)
+     {
+        index_A = Math.floor(Math.random() * N + 1);   
+        index_B = index_A;
      }
+     else
+     {
+        index_A = index_vencedor;
+        index_B = index_vencedor;
+     }
+     while(index_A === index_B)
+     {
+        index_B = Math.floor(Math.random() * N + 1);
+     }
+     updateText("botao_filme_1",vetorDeTitulos[index_A-1].title);
+     updateText("botao_filme_2",vetorDeTitulos[index_B-1].title)
      
-     var K = 32; /*reajuste máximo por jogo*/
-     var index_vencedor = -1;
-     var rept = 0;
+
+  }
      
+  function votar_filme(filme_id)
+  {
+
+        updateText("botao_filme_1",vetorDeTitulos[index_A-1].title);
+        updateText("botao_filme_2",vetorDeTitulos[index_B-1].title);
+        if(filme_id===1)
+        {
+           var rating_A = update_rating("win",vetorDeTitulos[index_A-1].elo_rating,vetorDeTitulos[index_B-1].elo_rating,K);
+           var rating_B = update_rating("lose",vetorDeTitulos[index_B-1].elo_rating,vetorDeTitulos[index_A-1].elo_rating,K);
+           vetorDeTitulos[index_A-1].elo_rating = rating_A;
+           vetorDeTitulos[index_B-1].elo_rating = rating_B;
+           
+           
+           if(index_vencedor === index_A)
+           {
+              rept = rept + 1;
+           }
+           index_vencedor = index_A;
+        }
+        else
+        {
+           
+           var rating_A = update_rating("lose",vetorDeTitulos[index_A-1].elo_rating,vetorDeTitulos[index_B-1].elo_rating,K);
+           var rating_B = update_rating("win",vetorDeTitulos[index_B-1].elo_rating,vetorDeTitulos[index_A-1].elo_rating,K);
+           vetorDeTitulos[index_A-1].elo_rating = rating_A;
+           vetorDeTitulos[index_B-1].elo_rating = rating_B;
+           if(index_vencedor === index_B)
+           {
+              rept = rept + 1;
+           }
+           index_vencedor = index_B;
+        }
+        if(rept>0)
+        {
+           index_vencedor = -1;
+           rept = 0;
+        }
+     
+        toggleText("filme1_tabela");
+        toggleText("filme2_tabela");
+        updateText("filme1_tabela",vetorDeTitulos[0].title + vetorDeTitulos[0].elo_rating);
+        updateText("filme2_tabela",vetorDeTitulos[1].title + vetorDeTitulos[1].elo_rating);
+
   }
   function voltar()
   {
@@ -117,6 +189,11 @@
      toggleText("botao_filme_2");
      toggleText("botao_ler");
      toggleText("botao_voltar");
+     toggleText("filme1");
+     toggleText("filme2");
+     toggleText("filme3");
+     toggleText("filme4");
+     toggleText("filme5");
   }
   function toggleText(id) {
      var text = document.getElementById(id);
@@ -126,6 +203,16 @@
        text.style.display = "none";
      }
   }
+     
+     
+  function updateText(id,valor)
+  {
+     var text = document.getElementById(id);
+     text.value = valor;
+  }
+     
+  /*TODO: Função que reseta a tabela para ser chamada quando o usuário volta para o menu inicial*/   
+  
   </script>
 </body>
   
