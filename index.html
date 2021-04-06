@@ -210,10 +210,7 @@ Vingadores
   function limpa_tabela(id)
   {
      var tabela = document.getElementById(id);
-     for(var i = 0; i < tabela.length; i++)
-     {
-        tabela[i].parentNode.removeChild(tabela[i]);
-     }
+     tabela.parentNode.removeChild(tabela);
   }
      
   function voltar()
