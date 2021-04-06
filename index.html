@@ -184,7 +184,7 @@
   function atualiza_tabela(id)
   {
      vetorDeFilmes.sort((a,b) =>  b.elo_rating-a.elo_rating);
-     limpa_tabela("tabela_de_filmes");
+     /*limpa_tabela("tabela_de_filmes");*/
      for(let i=0; i<vetorDeFilmes.length; i++)
      {
           var para = document.createElement("P");
