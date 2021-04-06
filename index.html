@@ -181,12 +181,14 @@
      
   function atualiza_tabela(id)
   {
+     vetorDeFilmes.sort((a,b) =>  b.elo_rating-a.elo_rating);
      for(let i=0; i<vetorDeFilmes.length; i++)
      {
           var para = document.createElement("P");
           para.innerText = vetorDeFilmes[i].title +" " + vetorDeFilmes[i].elo_rating;
           document.getElementById(id).appendChild(para);
      }
+     
   }
      
   function limpa_tabela(id)
