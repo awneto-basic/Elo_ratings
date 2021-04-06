@@ -133,6 +133,7 @@
      {
         index_B = Math.floor(Math.random() * N + 1);
      }
+     alert(index_A-1);
      updateText("botao_filme_1",vetorDeTitulos[index_A-1].title);
      updateText("botao_filme_2",vetorDeTitulos[index_B-1].title)
      
@@ -210,7 +211,6 @@
   function updateText(id,valor)
   {
      document.getElementById(id).innerHTML = valor;
-     alert (valor);
   }
      
   /*TODO: Função que reseta a tabela para ser chamada quando o usuário volta para o menu inicial*/   
