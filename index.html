@@ -101,13 +101,13 @@
      
      
      var textArea = document.getElementById("textbox");
-     var vetorDeTitulos = textArea.value.split("\n"); 
+     var titulos = textArea.value.split("\n"); 
      
-     var N = vetorDeTitulos.length;
+     var N = titulos.length;
      
      for (let i = 0; i<=N -1; i++)
      {
-        vetorDeFilmes.push(new Filme(i+1,vetorDeTitulos[i],1000))
+        vetorDeFilmes.push(new Filme(i+1,titulos[i],1000))
      }
      
      /*
@@ -132,8 +132,8 @@
         index_B = Math.floor(Math.random() * N + 1);
      }
 
-     updateText("botao_filme_1",vetorDeTitulos[0].title);
-     updateText("botao_filme_2",vetorDeTitulos[1].title)
+     updateText("botao_filme_1",vetorDeFilmes[index_A-1].title);
+     updateText("botao_filme_2",vetorDeFilmes[index_B-1].title)
      
 
   }
@@ -142,14 +142,14 @@
   {
         alert(index_A-1);
         alert(index_B-1);
-        updateText("botao_filme_1",vetorDeTitulos[index_A-1].title);
-        updateText("botao_filme_2",vetorDeTitulos[index_B-1].title);
+        updateText("botao_filme_1",vetorDeFilmes[index_A-1].title);
+        updateText("botao_filme_2",vetorDeFilmes[index_B-1].title);
         if(filme_id===1)
         {
-           var rating_A = update_rating("win",vetorDeTitulos[index_A-1].elo_rating,vetorDeTitulos[index_B-1].elo_rating,K);
-           var rating_B = update_rating("lose",vetorDeTitulos[index_B-1].elo_rating,vetorDeTitulos[index_A-1].elo_rating,K);
-           vetorDeTitulos[index_A-1].elo_rating = rating_A;
-           vetorDeTitulos[index_B-1].elo_rating = rating_B;
+           var rating_A = update_rating("win",vetorDeFilmes[index_A-1].elo_rating,vetorDeFilmes[index_B-1].elo_rating,K);
+           var rating_B = update_rating("lose",vetorDeFilmes[index_B-1].elo_rating,vetorDeFilmes[index_A-1].elo_rating,K);
+           vetorDeFilmes[index_A-1].elo_rating = rating_A;
+           vetorDeFilmes[index_B-1].elo_rating = rating_B;
            
            
            if(index_vencedor === index_A)
@@ -161,10 +161,10 @@
         else
         {
            
-           var rating_A = update_rating("lose",vetorDeTitulos[index_A-1].elo_rating,vetorDeTitulos[index_B-1].elo_rating,K);
-           var rating_B = update_rating("win",vetorDeTitulos[index_B-1].elo_rating,vetorDeTitulos[index_A-1].elo_rating,K);
-           vetorDeTitulos[index_A-1].elo_rating = rating_A;
-           vetorDeTitulos[index_B-1].elo_rating = rating_B;
+           var rating_A = update_rating("lose",vetorDeFilmes[index_A-1].elo_rating,vetorDeFilmes[index_B-1].elo_rating,K);
+           var rating_B = update_rating("win",vetorDeFilmes[index_B-1].elo_rating,vetorDeFilmes[index_A-1].elo_rating,K);
+           vetorDeFilmes[index_A-1].elo_rating = rating_A;
+           vetorDeFilmes[index_B-1].elo_rating = rating_B;
            if(index_vencedor === index_B)
            {
               rept = rept + 1;
@@ -183,8 +183,8 @@
         }
 
 
-        updateText("filme1_tabela",vetorDeTitulos[0].title + vetorDeTitulos[0].elo_rating);
-        updateText("filme2_tabela",vetorDeTitulos[1].title + vetorDeTitulos[1].elo_rating);
+        updateText("filme1_tabela",vetorDeFilmes[0].title +" " + vetorDeFilmes[0].elo_rating);
+        updateText("filme2_tabela",vetorDeFilmes[1].title +" " + vetorDeFilmes[1].elo_rating);
 
   }
   function voltar()
