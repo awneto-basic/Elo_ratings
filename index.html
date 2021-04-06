@@ -36,7 +36,8 @@
   <br>
   <br>
   <p id="tabela_de_filmes" style="text-align:center;font-size:16px; bottom: 0; display: none"></p>
-
+  <br>
+  <br>
   <p style="text-align:center;font-size:16px; bottom: 0;">
       Implementado por Alexandre Willik Neto.
    </p>
@@ -136,8 +137,6 @@
      
   function votar_filme(filme_id)
   {
-        alert(index_A-1);
-        alert(index_B-1);
         updateText("botao_filme_1",vetorDeFilmes[index_A-1].title);
         updateText("botao_filme_2",vetorDeFilmes[index_B-1].title);
         if(filme_id===1)
@@ -199,6 +198,7 @@
           list.removeChild(list.childNodes[0]);
        }
   }
+     
   function voltar()
   {
      toggleText("textbox");
