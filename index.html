@@ -101,10 +101,15 @@
      var textArea = document.getElementById("textbox");
      textArea.value = textArea.value.replace(/[^A-Za-z0-9\n]/gi,'');
      var titulos = textArea.value.split("\n"); 
+      
      
      var N = titulos.length;
+     for (let i = 0; i<N -1; i++)
+     {
+        titulos[i]=titulos[i].replace('\n','');           
+     }
      
-     for (let i = 0; i<=N -1; i++)
+     for (let i = 0; i<N -1; i++)
      {
         vetorDeFilmes.push(new Filme(i+1,titulos[i],1000))
      }
