@@ -195,8 +195,7 @@ Vingadores
      for(let i=0; i<vetorDeFilmes.length; i++)
      {
           var para = document.createElement("P");
-          var text = document.createTextNode(vetorDeFilmes[i].title +" " + vetorDeFilmes[i].elo_rating);
-          para.appendChild(text);
+          para.innerText = vetorDeFilmes[i].title +" " + vetorDeFilmes[i].elo_rating;
           document.getElementById(id).appendChild(para);
      }
 
