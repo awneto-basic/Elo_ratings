@@ -198,6 +198,7 @@ Vingadores
           para.innerText = vetorDeFilmes[i].title +" " + vetorDeFilmes[i].elo_rating;
           document.getElementById(id).appendChild(para);
      }
+     alert(getElementById(id).length);
 
   }
      
@@ -208,8 +209,7 @@ Vingadores
      
   function limpa_tabela(id)
   {
-     var tabela = document.getElementById(id);
-     tabela.parentNode.removeChild(tabela);
+
   }
      
   function voltar()
