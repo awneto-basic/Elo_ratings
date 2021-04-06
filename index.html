@@ -202,7 +202,11 @@
      
   function limpa_tabela(id)
   {
-      document.getElementById(id).remove();
+     var tabela = getElementById(id);
+     for(var i = 0; i < tabela.length; i++)
+     {
+        tabela[i].parentNode.removeChild(tabela[i]);
+     }
   }
      
   function voltar()
