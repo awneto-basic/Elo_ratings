@@ -182,6 +182,7 @@
   function atualiza_tabela(id)
   {
      vetorDeFilmes.sort((a,b) =>  b.elo_rating-a.elo_rating);
+     limpa_tabela("tabela_de_filmes");
      for(let i=0; i<vetorDeFilmes.length; i++)
      {
           var para = document.createElement("P");
@@ -191,11 +192,14 @@
      
   }
      
+  function reseta_tabela()
+  {
+      vetorDeFilmes = [];
+  }
   function limpa_tabela(id)
   {
        for(let i=0; i<vetorDeFilmes.length; i++)
        {
-          vetorDeFilmes[i].elo_rating = 1000;
           var list = document.getElementById(id);
           list.removeChild(list.childNodes[0]);
        }
@@ -208,6 +212,7 @@
      toggleText("botao_filme_2");
      toggleText("botao_ler");
      toggleText("botao_voltar");
+     reseta_tabela();
      limpa_tabela("tabela_de_filmes");
      toggleText("tabela_de_filmes");
   }
