@@ -86,11 +86,10 @@
      
   function ler_filmes()
   {
-     const ele = document.getElementsByTagName('textarea');
-     if (ele.value === '') 
+
+     if (document.getElementsById("textbox").value === '') 
      {
            alert ('Escreva um título de um filme antes usar o classificador.');
-           ele.focus();
            return false;
      }
      toggleText("textbox");
