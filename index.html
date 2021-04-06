@@ -35,11 +35,8 @@
   <button class="button" id="botao_ler" onclick="ler_filmes()" style="background-color: #3300FF;display: block">Classificar filmes!</button>
   <br>
   <br>
-  <p id="filme1_tabela" style="text-align:center;font-size:16px; bottom: 0; display: none"></p>
-  <p id="filme2_tabela" style="text-align:center;font-size:16px; bottom: 0; display: none"></p>
-  <p id="filme3_tabela" style="text-align:center;font-size:16px; bottom: 0; display: none"></p>
-  <p id="filme4_tabela" style="text-align:center;font-size:16px; bottom: 0; display: none"></p>
-  <p id="filme5_tabela" style="text-align:center;font-size:16px; bottom: 0; display: none"></p>
+  <p id="tabela_de_filmes" style="text-align:center;font-size:16px; bottom: 0; display: none"></p>
+
   <p style="text-align:center;font-size:16px; bottom: 0;">
       Implementado por Alexandre Willik Neto.
    </p>
@@ -175,22 +172,30 @@
            index_vencedor = -1;
            rept = 0;
         }
-     if(document.getElementById("filme1_tabela").style.display === "none")
+        if(document.getElementById("tabela_de_filmes").style.display === "none")
         {
-           toggleText("filme1");
-           toggleText("filme2");
-           toggleText("filme3");
-           toggleText("filme4");
-           toggleText("filme5");
+           toggleText("tabela_de_filmes");
         }
-
-
-        updateText("filme1_tabela",vetorDeFilmes[0].title +" " + vetorDeFilmes[0].elo_rating);
-        updateText("filme2_tabela",vetorDeFilmes[1].title +" " + vetorDeFilmes[1].elo_rating);
-        updateText("filme3_tabela",vetorDeFilmes[2].title +" " + vetorDeFilmes[2].elo_rating);
-        updateText("filme4_tabela",vetorDeFilmes[3].title +" " + vetorDeFilmes[3].elo_rating);
-        updateText("filme5_tabela",vetorDeFilmes[4].title +" " + vetorDeFilmes[4].elo_rating);
-
+        atualiza_tabela("tabela_de_filmes);
+  }
+     
+     
+  function atualiza_tabela(id)
+  {
+     for(let i=0; i<vetorDeFilmes.length; i++)
+     {
+          var para = document.createElement("P");
+          para.innerText = vetorDeFilmes[i].title +" " + vetorDeFilmes[i].elo_rating;
+          document.getElementById(id).appendChild(para);
+     }
+  }
+  function limpa_tabela(id)
+  {
+       for(let i=0; i<vetorDeFilmes.length; i++)
+       {
+          var list = document.getElementById(id);
+          list.removeChild(list.childNodes[0]);
+       }
   }
   function voltar()
   {
@@ -199,11 +204,8 @@
      toggleText("botao_filme_2");
      toggleText("botao_ler");
      toggleText("botao_voltar");
-     toggleText("filme1");
-     toggleText("filme2");
-     toggleText("filme3");
-     toggleText("filme4");
-     toggleText("filme5");
+     limpa_tabela("tabela_de_filmes");
+     toggleText("tabela_de_filmes");
   }
   function toggleText(id) {
      var text = document.getElementById(id);
