@@ -199,10 +199,10 @@
   }
   function limpa_tabela(id)
   {
-       for(let i=0; i<vetorDeFilmes.length; i++)
+       for(let i=0; i<vetorDeFilmes.length-1; i++)
        {
           var list = document.getElementById(id);
-          list.removeChild(list.childNodes[0]);
+          list.removeChild(list.childNodes[1]);
        }
   }
      
