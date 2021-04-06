@@ -98,6 +98,7 @@
      
      
      var textArea = document.getElementById("textbox");
+     textArea.value = textArea.value.replace(/[^A-Za-z0-9\n]/gi,'');
      var titulos = textArea.value.split("\n"); 
      
      var N = titulos.length;
