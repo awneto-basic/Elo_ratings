@@ -199,13 +199,10 @@
   {
       vetorDeFilmes = [];
   }
+     
   function limpa_tabela(id)
   {
-       for(let i=0; i<vetorDeFilmes.length-1; i++)
-       {
-          var list = document.getElementById(id);
-          alert(list.lastChild);
-       }
+      document.getElementById(id).remove();
   }
      
   function voltar()
