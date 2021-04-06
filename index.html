@@ -178,9 +178,13 @@
            index_vencedor = -1;
            rept = 0;
         }
-     
-        toggleText("filme1_tabela");
-        toggleText("filme2_tabela");
+        if(document.getElementById(filme1_tabela).style.display === "none")
+        {
+                   toggleText("filme1_tabela");
+                   toggleText("filme2_tabela");
+        }
+
+
         updateText("filme1_tabela",vetorDeTitulos[0].title + vetorDeTitulos[0].elo_rating);
         updateText("filme2_tabela",vetorDeTitulos[1].title + vetorDeTitulos[1].elo_rating);
 
