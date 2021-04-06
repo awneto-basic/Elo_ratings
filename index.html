@@ -177,13 +177,19 @@
         }
      if(document.getElementById("filme1_tabela").style.display === "none")
         {
-                   toggleText("filme1_tabela");
-                   toggleText("filme2_tabela");
+           toggleText("filme1");
+           toggleText("filme2");
+           toggleText("filme3");
+           toggleText("filme4");
+           toggleText("filme5");
         }
 
 
         updateText("filme1_tabela",vetorDeFilmes[0].title +" " + vetorDeFilmes[0].elo_rating);
         updateText("filme2_tabela",vetorDeFilmes[1].title +" " + vetorDeFilmes[1].elo_rating);
+        updateText("filme3_tabela",vetorDeFilmes[2].title +" " + vetorDeFilmes[2].elo_rating);
+        updateText("filme4_tabela",vetorDeFilmes[3].title +" " + vetorDeFilmes[3].elo_rating);
+        updateText("filme5_tabela",vetorDeFilmes[4].title +" " + vetorDeFilmes[4].elo_rating);
 
   }
   function voltar()
