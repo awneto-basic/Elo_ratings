@@ -122,32 +122,13 @@ Vingadores
         alert (vetorDeFilmes[i].index);
      }*/
      
-
-     if (index_vencedor === -1)
-     {
-        index_A = Math.floor(Math.random() * N + 1);   
-        index_B = index_A;
-     }
-     else
-     {
-        index_A = index_vencedor;
-        index_B = index_vencedor;
-     }
-     while(index_A === index_B)
-     {
-        index_B = Math.floor(Math.random() * N + 1);
-     }
-
-     updateText("botao_filme_1",vetorDeFilmes[index_A-1].title);
-     updateText("botao_filme_2",vetorDeFilmes[index_B-1].title)
-     
+   escolhe_filmes_novos();  
 
   }
      
   function votar_filme(filme_id)
   {
-        updateText("botao_filme_1",vetorDeFilmes[index_A-1].title);
-        updateText("botao_filme_2",vetorDeFilmes[index_B-1].title);
+
         if(filme_id===1)
         {
            var rating_A = update_rating("win",vetorDeFilmes[index_A-1].elo_rating,vetorDeFilmes[index_B-1].elo_rating,K);
@@ -180,7 +161,7 @@ Vingadores
            index_vencedor = -1;
            rept = 0;
         }
-
+        escolhe_filmes_novos();
         atualiza_tabela("tabela_de_filmes");
   }
      
@@ -223,7 +204,29 @@ Vingadores
           document.getElementById("p"+i.toString()).remove();
      }
   }
+  
+  function escolhe_filmes_novos()
+  {
+     if (index_vencedor === -1)
+     {
+        index_A = Math.floor(Math.random() * N + 1);   
+        index_B = index_A;
+     }
+     else
+     {
+        index_A = index_vencedor;
+        index_B = index_vencedor;
+     }
+     while(index_A === index_B)
+     {
+        index_B = Math.floor(Math.random() * N + 1);
+     }
+
+     updateText("botao_filme_1",vetorDeFilmes[index_A-1].title);
+     updateText("botao_filme_2",vetorDeFilmes[index_B-1].title)
+  }
      
+  
   function voltar()
   {
      toggleText("textbox");
