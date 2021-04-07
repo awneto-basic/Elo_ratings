@@ -35,7 +35,7 @@ Vingadores
   <button class="button" id="botao_ler" onclick="ler_filmes()" style="background-color: #3300FF;display: block">Classificar filmes!</button>
   <br>
   <br>
-  <p id="tabela_de_filmes" style="text-align:center;font-size:16px; bottom: 0; display: none"></p>
+  <p id="tabela_de_filmes" style="text-align:left;font-size:16px; bottom: 0; display: none"></p>
   <br>
   <br>
   <button class="button" id="botao_voltar" onclick="voltar()" style="background-color: #FF6347;display: none">Voltar</button>
@@ -207,7 +207,7 @@ Vingadores
         
           /*Escreve a tabela novamente*/
           var para = document.createElement("P");
-          para.innerText = vetorDeFilmes[i].title +" " + vetorDeFilmes[i].elo_rating.toFixed(2);
+          para.innerText = vetorDeFilmes[i].title +"  " + vetorDeFilmes[i].elo_rating.toFixed(2);
           para.id = "p"+i.toString();
         
           document.getElementById(id).appendChild(para);
