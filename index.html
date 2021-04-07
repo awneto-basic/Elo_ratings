@@ -131,7 +131,7 @@ Vingadores
         {
            var rating_A = update_rating("win",vetorDeFilmes[index_A-1].elo_rating,vetorDeFilmes[index_B-1].elo_rating,K);
            var rating_B = update_rating("lose",vetorDeFilmes[index_B-1].elo_rating,vetorDeFilmes[index_A-1].elo_rating,K);
-           alert(vetorDeFilmes[index_A-1].title + " " + vetorDeFilmes[index_A-1].elo_rating + " " + rating_A;
+           alert(vetorDeFilmes[index_A-1].title + " " + vetorDeFilmes[index_A-1].elo_rating + " " + rating_A);
            vetorDeFilmes[index_A-1].elo_rating = rating_A;
            vetorDeFilmes[index_B-1].elo_rating = rating_B;
            
@@ -147,7 +147,7 @@ Vingadores
            
            var rating_A = update_rating("lose",vetorDeFilmes[index_A-1].elo_rating,vetorDeFilmes[index_B-1].elo_rating,K);
            var rating_B = update_rating("win",vetorDeFilmes[index_B-1].elo_rating,vetorDeFilmes[index_A-1].elo_rating,K);
-           alert(vetorDeFilmes[index_B-1].title + " " + vetorDeFilmes[index_B-1].elo_rating + " " + rating_B;
+           alert(vetorDeFilmes[index_B-1].title + " " + vetorDeFilmes[index_B-1].elo_rating + " " + rating_B);
            vetorDeFilmes[index_A-1].elo_rating = rating_A;
            vetorDeFilmes[index_B-1].elo_rating = rating_B;
            if(index_vencedor === index_B)
