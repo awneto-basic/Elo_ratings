@@ -180,8 +180,8 @@ Vingadores
      
      vetorDeFilmes.sort((a,b) =>  b.elo_rating-a.elo_rating); /*Organiza a tabela em ordem decrescente de índice ELO*/
      
-     index_A = vetorDeFilmes.find(filme => filme.title == titleA).index; /*Atualiza o índice do filme exibido no primeiro botão (a tabela foi organizada e o índice dos filmes foi alterado)*/
-     index_B = vetorDeFilmes.find(filme => filme.title == titleB).index; /*Guarda o título do filme exibido no segundo botão (a tabela foi organizada e o índice dos filmes foi alterado)*/
+     index_A = vetorDeFilmes.find(filme => filme.title == titleA).index -1; /*Atualiza o índice do filme exibido no primeiro botão (a tabela foi organizada e o índice dos filmes foi alterado)*/
+     index_B = vetorDeFilmes.find(filme => filme.title == titleB).index -1; /*Guarda o título do filme exibido no segundo botão (a tabela foi organizada e o índice dos filmes foi alterado)*/
 
      for(let i=0; i<vetorDeFilmes.length; i++)
      {
