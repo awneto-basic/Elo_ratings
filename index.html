@@ -161,7 +161,7 @@ Vingadores
            rept = 0;
         }
         escolhe_filmes_novos(vetorDeFilmes.length);
-        atualiza_tabela("tabela_de_filmes");
+        atualiza_tabela("tabela_de_filmes"); 
   }
      
      
@@ -175,7 +175,13 @@ Vingadores
      {
         limpa_tabela(id);
      }
-     vetorDeFilmes.sort((a,b) =>  b.elo_rating-a.elo_rating);
+     var titleA = vetorDeFilmes.find(filme => filme.index == indexA).title; /*Guarda o título do filme exibido no primeiro botão*/
+     var titleB = vetorDeFilmes.find(filme => filme.index == indexB).title; /*Guarda o título do filme exibido no segundo botão*/
+     
+     vetorDeFilmes.sort((a,b) =>  b.elo_rating-a.elo_rating); /*Organiza a tabela em ordem decrescente de índice ELO*/
+     
+     indexA = vetorDeFilmes.find(filme => filme.title == titleA).index; /*Atualiza o índice do filme exibido no primeiro botão (a tabela foi organizada e o índice dos filmes foi alterado)*/
+     indexB = vetorDeFilmes.find(filme => filme.title == titleB).index; /*Guarda o título do filme exibido no segundo botão (a tabela foi organizada e o índice dos filmes foi alterado)*/
 
      for(let i=0; i<vetorDeFilmes.length; i++)
      {
