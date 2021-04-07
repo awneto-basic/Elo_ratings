@@ -104,7 +104,8 @@ Vingadores
      
      
      var textArea = document.getElementById("textbox");
-     /*textArea.value = textArea.value.replace(/[^A-Za-z0-9\n]/gi,'');*/
+     const reg = /[^A-Za-zÀ-ȕ0-9(), ,\n]/g;  //Validação da entrada
+     textArea.value = textArea.value.replace(reg,'');
      var titulos = textArea.value.split("\n"); 
      
      
