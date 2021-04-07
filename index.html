@@ -191,7 +191,7 @@ Vingadores
      
   function reseta_vetor_de_filmes()
   {
-     N = vetorDeFilmes.len();
+     N = vetorDeFilmes.length;
      for (let i = 0; i<N; i++)
      {
         vetorDeFilmes.pop();
@@ -240,11 +240,16 @@ Vingadores
      toggleText("tabela_de_filmes");
      index_vencedor = -1;
   }
-  function toggleText(id) {
+     
+  function toggleText(id)
+  {
      var text = document.getElementById(id);
-     if (text.style.display === "none") {
+     if (text.style.display === "none") 
+     {
        text.style.display = "block";
-     } else {
+     } 
+     else
+     {
        text.style.display = "none";
      }
   }
