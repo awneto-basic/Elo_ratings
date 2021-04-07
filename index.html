@@ -210,7 +210,10 @@ Vingadores
      
   function reseta_tabela()
   {
-      vetorDeFilmes = [];
+      for (var key in vetorDeFilmes)
+      {
+         delete(vetorDeFilmes[key]);
+      }
   }
      
   function limpa_tabela(id)
