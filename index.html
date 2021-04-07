@@ -183,18 +183,23 @@ Vingadores
            index_vencedor = -1;
            rept = 0;
         }
-        if(document.getElementById("tabela_de_filmes").style.display === "none")
-        {
-           toggleText("tabela_de_filmes");
-        }
+
         atualiza_tabela("tabela_de_filmes");
   }
      
      
   function atualiza_tabela(id)
   {
+     if(document.getElementById(id).style.display === "none")
+     {
+        toggleText(id);
+     }
+     else /*Se a tabela estiver em exibição*/
+     {
+        limpa_tabela(id);
+     }
      vetorDeFilmes.sort((a,b) =>  b.elo_rating-a.elo_rating);
-     limpa_tabela("tabela_de_filmes");
+
      for(let i=0; i<vetorDeFilmes.length; i++)
      {
           var para = document.createElement("P");
