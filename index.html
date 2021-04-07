@@ -160,9 +160,28 @@ Vingadores
         }
         escolhe_filmes_novos(vetorDeFilmes.length);
         atualiza_tabela("tabela_de_filmes"); 
-        alert(rept);
   }
      
+     
+  function escolhe_filmes_novos(N)
+  {
+     alert(index_vencedor);
+     if (index_vencedor == -1)
+     {
+        index_A = Math.floor(Math.random() * N + 1);   
+        index_B = index_A;
+     }
+     else
+     {
+        index_A = index_vencedor;
+        index_B = index_vencedor;
+     }
+     while(index_A == index_B)
+     {
+        index_B = Math.floor(Math.random() * N + 1);
+     }
+     alert(index_A,index_B);
+  }
      
   function atualiza_tabela(id)
   {
@@ -194,8 +213,23 @@ Vingadores
      
      index_A = vetorDeFilmes.find(filme => filme.title == titleA).index; /*Atualiza o índice do filme exibido no primeiro botão (a tabela foi organizada e o índice dos filmes foi alterado)*/
      index_B = vetorDeFilmes.find(filme => filme.title == titleB).index; /*Guarda o título do filme exibido no segundo botão (a tabela foi organizada e o índice dos filmes foi alterado)*/
-
-
+     
+     updateText("botao_filme_1",vetorDeFilmes[index_A-1].title);
+     updateText("botao_filme_2",vetorDeFilmes[index_B-1].title);
+  
+  }   
+  
+  function voltar()
+  {
+     toggleText("textbox");
+     toggleText("botao_filme_1");
+     toggleText("botao_filme_2");
+     toggleText("botao_ler");
+     toggleText("botao_voltar");
+     limpa_tabela("tabela_de_filmes");
+     toggleText("tabela_de_filmes");
+     reseta_vetor_de_filmes();
+     index_vencedor = -1;
   }
      
   function reseta_vetor_de_filmes()
@@ -217,41 +251,6 @@ Vingadores
           }
      }
   }
-  
-  function escolhe_filmes_novos(N)
-  {
-     if (index_vencedor === -1)
-     {
-        index_A = Math.floor(Math.random() * N + 1);   
-        index_B = index_A;
-     }
-     else
-     {
-        index_A = index_vencedor;
-        index_B = index_vencedor;
-     }
-     while(index_A === index_B)
-     {
-        index_B = Math.floor(Math.random() * N + 1);
-     }
-
-     updateText("botao_filme_1",vetorDeFilmes[index_A-1].title);
-     updateText("botao_filme_2",vetorDeFilmes[index_B-1].title);
-  }
-     
-  
-  function voltar()
-  {
-     toggleText("textbox");
-     toggleText("botao_filme_1");
-     toggleText("botao_filme_2");
-     toggleText("botao_ler");
-     toggleText("botao_voltar");
-     limpa_tabela("tabela_de_filmes");
-     toggleText("tabela_de_filmes");
-     reseta_vetor_de_filmes();
-     index_vencedor = -1;
-  }
      
   function toggleText(id)
   {
@@ -272,7 +271,6 @@ Vingadores
      document.getElementById(id).innerHTML = valor;
   }
      
-  /*TODO: Função que reseta a tabela para ser chamada quando o usuário volta para o menu inicial*/   
   
   </script>
 </body>
