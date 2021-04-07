@@ -35,7 +35,7 @@ Vingadores
   <button class="button" id="botao_ler" onclick="ler_filmes()" style="background-color: #3300FF;display: block">Classificar filmes!</button>
   <br>
   <br>
-  <p id="tabela_de_filmes" style="text-align:left;font-size:16px; bottom: 0; display: none"></p>
+  <p id="tabela_de_filmes" style="text-align:right;font-size:16px; bottom: 0; display: none"></p>
   <br>
   <br>
   <button class="button" id="botao_voltar" onclick="voltar()" style="background-color: #FF6347;display: none">Voltar</button>
@@ -167,7 +167,7 @@ Vingadores
      
   function escolhe_filmes_novos(N)
   {
-     alert(index_vencedor);
+
      if (index_vencedor == -1)
      {
         index_A = Math.floor(Math.random() * N + 1);   
@@ -182,7 +182,6 @@ Vingadores
      {
         index_B = Math.floor(Math.random() * N + 1);
      }
-     alert(index_A + " " + index_B);
   }
      
   function atualiza_tabela(id)
