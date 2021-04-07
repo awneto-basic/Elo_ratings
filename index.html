@@ -122,7 +122,7 @@ Vingadores
         alert (vetorDeFilmes[i].index);
      }*/
      
-   escolhe_filmes_novos();  
+   escolhe_filmes_novos(N);  
 
   }
      
@@ -161,7 +161,7 @@ Vingadores
            index_vencedor = -1;
            rept = 0;
         }
-        escolhe_filmes_novos();
+        escolhe_filmes_novos(vetorDeFilmes.length);
         atualiza_tabela("tabela_de_filmes");
   }
      
@@ -205,7 +205,7 @@ Vingadores
      }
   }
   
-  function escolhe_filmes_novos()
+  function escolhe_filmes_novos(N)
   {
      if (index_vencedor === -1)
      {
