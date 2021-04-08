@@ -136,6 +136,7 @@ Vingadores
            if((index_vencedor == index_A)||(index_vencedor == index_B))
            {
               rept = rept + 1;
+              alert("repetiu");
            }
            index_vencedor = index_A;
 
@@ -148,9 +149,11 @@ Vingadores
            var rating_B = update_rating("win",vetorDeFilmes[index_B-1].elo_rating,vetorDeFilmes[index_A-1].elo_rating,K);
            vetorDeFilmes[index_A-1].elo_rating = rating_A;
            vetorDeFilmes[index_B-1].elo_rating = rating_B;
+           
            if((index_vencedor == index_A)||(index_vencedor == index_B))
            {
               rept = rept + 1;
+              alert("repetiu");
            }
            index_vencedor = index_B;
            
