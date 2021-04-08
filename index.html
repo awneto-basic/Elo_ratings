@@ -161,7 +161,6 @@ Vingadores
            index_vencedor = -1;
            rept = 0;
         }
-        alert(vetorDeFilmes[index_A-1].counter + " " + vetorDeFilmes[index_B-1].counter);
         escolhe_filmes_novos(vetorDeFilmes.length);
         atualiza_tabela("tabela_de_filmes"); 
   }
@@ -174,13 +173,12 @@ Vingadores
      {
         index_A = Math.floor(Math.random() * N + 1);   
         index_B = index_A;
-        alert("-1");
+
      }
      else
      {
         index_A = index_vencedor;
         index_B = index_vencedor;
-        alert("repetiu");
      }
      var min = Math.min.apply(Math, vetorDeFilmes.map(function(o) { return o.counter; }));
      var max = Math.max.apply(Math, vetorDeFilmes.map(function(o) { return o.counter; }));
@@ -193,12 +191,18 @@ Vingadores
         }
      }
      else
-     {
-        while(index_A == index_B)
+     {  
+        index_B = vetorDeFilmes.find(filme => filme.counter == min).index; /*O próximo filme será um dos filmes que menos participou de comparações*/
+        if(index_A == index_B)
         {
-           index_B = Math.floor(Math.random() * N + 1);
-           index_B = vetorDeFilmes.find(filme => filme.counter == min).index; /*O próximo filme será um dos filmes que menos participou de comparações*/
-           alert(min + " " + index_A + " " + index_B);
+           if(index_B < N)
+           {
+              index_B += 1;
+           }
+           else
+           {
+              index_B -=1;
+           }
         }
      }
      
