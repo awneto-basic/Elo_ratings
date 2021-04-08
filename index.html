@@ -43,7 +43,7 @@ Vingadores
   <script>
   var rept = 0;
   var K = 32; /*reajuste máximo por jogo*/
-  var index_vencedor = -1;
+  var vencedor = -1;
   var rept = 0;
   var index_A=0;
   var index_B=0;
@@ -133,12 +133,12 @@ Vingadores
            vetorDeFilmes[index_B-1].elo_rating = rating_B;
            
            
-           if((index_vencedor == index_A)||(index_vencedor == index_B))
+           if((vencedor == vetorDeFilmes[index_A-1].title)||(vencedor == vetorDeFilmes[index_A-1].title))
            {
               rept = rept + 1;
               alert("repetiu");
            }
-           index_vencedor = index_A;
+           vencedor = vetorDeFilmes[index_A-1].title;
 
            
         }
@@ -150,18 +150,18 @@ Vingadores
            vetorDeFilmes[index_A-1].elo_rating = rating_A;
            vetorDeFilmes[index_B-1].elo_rating = rating_B;
            
-           if((index_vencedor == index_A)||(index_vencedor == index_B))
+           if((vencedor == vetorDeFilmes[index_A-1].title)||(vencedor == vetorDeFilmes[index_B-1].title))
            {
               rept = rept + 1;
               alert("repetiu");
            }
-           index_vencedor = index_B;
+           vencedor = vetorDeFilmes[index_B-1].title;
            
            
         }
         if(rept>0)
         {
-           index_vencedor = -1;
+           vencedor = -1;
            rept = 0;
         }
         escolhe_filmes_novos(vetorDeFilmes.length);
@@ -172,7 +172,7 @@ Vingadores
   function escolhe_filmes_novos(N)
   {
 
-     if (index_vencedor == -1)
+     if (vencedor == -1)
      {
         index_A = Math.floor(Math.random() * N + 1);   
         index_B = index_A;
@@ -180,11 +180,11 @@ Vingadores
      }
      else
      {
-        index_A = index_vencedor;
-        index_B = index_vencedor;
+        index_A = vetorDeFilmes.find(filme => filme.title == vencedor).index;
+        index_B = index_A;
      }
-     var min = Math.min.apply(Math, vetorDeFilmes.map(function(o) { return o.counter; }));
-     var max = Math.max.apply(Math, vetorDeFilmes.map(function(o) { return o.counter; }));
+     var min = Math.min.apply(Math, vetorDeFilmes.map(function(o) { return o.counter; }));   // encontra o menor número de vezes em que um filme foi comparado
+     var max = Math.max.apply(Math, vetorDeFilmes.map(function(o) { return o.counter; }));   // encontra o maior número de vezes em que um filme foi comparado
      
      if (max == 0)   //se nenhum filme tiver sido votado
      {
@@ -259,7 +259,7 @@ Vingadores
      limpa_tabela("tabela_de_filmes");
      toggleText("tabela_de_filmes");
      reseta_vetor_de_filmes();
-     index_vencedor = -1;
+     vencedor = -1;
   }
      
   function reseta_vetor_de_filmes()
