@@ -51,11 +51,12 @@ Vingadores
   
   class Filme
   {
-     constructor(index, title, elo_rating)
+     constructor(index, title, elo_rating, counter)
      {
         this.index = index;
         this.title = title;
         this.elo_rating = elo_rating;
+        this.counter = counter;
      }
   }
   
@@ -106,7 +107,7 @@ Vingadores
      
      for (let i = 0; i<N; i++)
      {
-        vetorDeFilmes.push(new Filme(i+1,titulos[i],1000))
+        vetorDeFilmes.push(new Filme(i+1,titulos[i],1000,0))
      }
      
      /*
@@ -137,6 +138,8 @@ Vingadores
               rept = rept + 1;
            }
            index_vencedor = index_A;
+           vetorDeFilmes[index_A-1].counter += 1;
+           
         }
         else
         {
@@ -150,6 +153,8 @@ Vingadores
               rept = rept + 1;
            }
            index_vencedor = index_B;
+           
+           vetorDeFilmes[index_A-1].counter += 1;
         }
         if(rept>0)
         {
@@ -176,7 +181,9 @@ Vingadores
      }
      while(index_A == index_B)
      {
-        index_B = Math.floor(Math.random() * N + 1);
+        /*index_B = Math.floor(Math.random() * N + 1);*/
+        var min = Math.min.apply(Math, vetorDeFilmes.map(function(o) { return o.counter; }))
+        index_B = vetorDeFilmes.find(filme => filme.counter == min).index; /*O próximo filme será um dos filmes que menos participou de comparações*/
      }
   }
      
