@@ -138,7 +138,7 @@ Vingadores
               rept = rept + 1;
            }
            index_vencedor = index_A;
-           vetorDeFilmes[index_A-1].counter += 1;
+
            
         }
         else
@@ -154,7 +154,7 @@ Vingadores
            }
            index_vencedor = index_B;
            
-           vetorDeFilmes[index_A-1].counter += 1;
+           
         }
         if(rept>0)
         {
@@ -201,6 +201,9 @@ Vingadores
            alert(min + " " + index_A + " " + index_B);
         }
      }
+     
+     vetorDeFilmes[index_A-1].counter += 1; // incrementa o contador do primeiro filme
+     vetorDeFilmes[index_B-1].counter += 1; // incrementa o contador do segundo filme
   }
      
   function atualiza_tabela(id)
