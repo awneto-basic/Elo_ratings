@@ -182,12 +182,24 @@ Vingadores
         index_B = index_vencedor;
         alert("repetiu");
      }
-     while(index_A == index_B)
+     var min = Math.min.apply(Math, vetorDeFilmes.map(function(o) { return o.counter; }));
+     var max = Math.max.apply(Math, vetorDeFilmes.map(function(o) { return o.counter; }));
+     
+     if (max == 0)   //se nenhum filme tiver sido votado
      {
-        index_B = Math.floor(Math.random() * N + 1);
-        var min = Math.min.apply(Math, vetorDeFilmes.map(function(o) { return o.counter; }));
-        index_B = vetorDeFilmes.find(filme => filme.counter == min).index; /*O próximo filme será um dos filmes que menos participou de comparações*/
-        alert(min + " " + index_A + " " + index_B);
+        while(index_A == index_B)
+        {
+           index_B = Math.floor(Math.random() * N + 1);
+        }
+     }
+     else
+     {
+        while(index_A == index_B)
+        {
+           index_B = Math.floor(Math.random() * N + 1);
+           index_B = vetorDeFilmes.find(filme => filme.counter == min).index; /*O próximo filme será um dos filmes que menos participou de comparações*/
+           alert(min + " " + index_A + " " + index_B);
+        }
      }
   }
      
